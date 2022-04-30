@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-untitled" insertBefore="administration" caption="mainMsg://menu_config.application-untitled">
+        <item screen="untitled_Request.browse" caption="mainMsg://menu_config.untitled_Request.browse"/>
+        <item screen="untitled_Product.browse" caption="mainMsg://menu_config.untitled_Product.browse"/>
+        <item screen="untitled_Supplier.browse" caption="mainMsg://menu_config.untitled_Supplier.browse"/>
+        <item screen="untitled_RequestItem.browse" caption="mainMsg://menu_config.untitled_RequestItem.browse"/>
+        <item screen="untitled_Customer.browse" caption="mainMsg://menu_config.untitled_Customer.browse"/>
+        <item screen="untitled_Customer2.browse" caption="mainMsg://menu_config.untitled_Customer2.browse"/>
+        <item screen="untitled_Product2.browse" caption="mainMsg://menu_config.untitled_Product2.browse"/>
+        <item screen="untitled_Request2.browse" caption="mainMsg://menu_config.untitled_Request2.browse"/>
+        <item screen="untitled_RequestItem2.browse" caption="mainMsg://menu_config.untitled_RequestItem2.browse"/>
+        <item screen="untitled_Supplier2.browse" caption="mainMsg://menu_config.untitled_Supplier2.browse"/>
+    </menu>
+</menu-config>

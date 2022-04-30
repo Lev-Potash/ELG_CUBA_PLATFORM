@@ -1,0 +1,76 @@
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://supplierBrowse.caption"
+        focusComponent="table"
+        messagesPack="com.company.untitled.web.screens.supplier">
+    <data>
+        <collection id="suppliersDc"
+                    class="com.company.untitled.entity.Supplier">
+            <view extends="_local"/>
+            <loader id="suppliersDl">
+                <query>
+                    <![CDATA[select e from untitled_Supplier e]]>
+                </query>
+            </loader>
+        </collection>
+        <instance id="supplierDc"
+                  class="com.company.untitled.entity.Supplier">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <actions>
+        <action id="save" icon="icons/ok.png" caption="mainMsg://actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="icons/cancel.png" caption="mainMsg://actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" applyTo="table" dataLoader="suppliersDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="suppliersDc">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"
+                                caption="&#1057;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100;"/>
+                        <button id="editBtn" action="table.edit"
+                                caption="&#1056;&#1077;&#1076;&#1072;&#1082;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100;"/>
+                        <button id="removeBtn" action="table.remove"
+                                caption="&#1059;&#1076;&#1072;&#1083;&#1080;&#1090;&#1100;"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="fieldGroupBox" spacing="true">
+                <scrollBox id="fieldGroupBox">
+                    <form id="form" dataContainer="supplierDc">
+                        <column width="350px">
+                            <textArea id="nameField" property="name" rows="5"
+                                      caption="&#1055;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082;"/>
+                        </column>
+                    </form>
+                </scrollBox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"/>
+                    <button id="cancelBtn" action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>
