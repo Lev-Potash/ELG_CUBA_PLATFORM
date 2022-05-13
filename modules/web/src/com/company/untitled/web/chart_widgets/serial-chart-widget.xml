@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd" >
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+                    >
+            <loader id="productDl" >
+                <query>SELECT p FROM untitled_Product p ORDER BY p.name</query>
+            </loader>
+        </collection>
+    </data>
+    
+    
+    <layout>
+        <!--chart:allLabels>
+            <chart:label x="200"
+                         y="700"
+                         text="You can place a label at any position on the chart"
+                         color="DARKBLUE"
+                         align="CENTER"
+                         rotation="-30"/>
+        </chart:allLabels-->
+
+        <!--chart:graphs>
+            <chart:graph balloonText="[[category]]: [[value]] m/s"
+                         bullet="ROUND"
+                         fillAlphas="0.3"
+                         valueField="value"/>
+        </chart:graphs>
+        <chart:balloon adjustBorderColor="false"
+                       color="WHITE"
+                       horizontalPadding="10"
+                       verticalPadding="8"/-->
+        <chart:serialChart  id="serialChartId"
+                            additionalFields="id"
+                            categoryField="name"
+                            dataContainer="productDc"
+                            marginBottom="26"
+                            marginLeft="30"
+                            marginRight="8"
+                            marginTop="10"
+                            startDuration="1"
+                            theme="LIGHT"
+        >
+            <chart:valueAxes>
+                <chart:axis axisAlpha="0"
+                            position="LEFT"/>
+            </chart:valueAxes>
+            <chart:graphs>
+                <chart:graph id="g1"
+                             title="Cost"
+                             type="COLUMN"
+                             valueField="cost"
+
+                             balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                             &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; &lt;/span&gt;">
+                </chart:graph>
+            </chart:graphs>
+            <chart:categoryAxis axisAlpha="0"
+                                gridPosition="START"
+                                tickLength="0"/>
+            <chart:chartScrollbar graph="g1"
+                                  autoGridCount="true"
+                                  scrollbarHeight="30"/>
+
+            <chart:balloon adjustBorderColor="false"
+                           color="WHITE"
+                           horizontalPadding="10"
+                           verticalPadding="8"/>
+            <!--chart:categoryAxis dashLength="1"
+                                minorGridEnabled="true"/-->
+            <!--chart:categoryAxis axisAlpha="0"
+                                gridPosition="START"
+                                tickLength="0"/-->
+
+
+            <chart:chartCursor cursorAlpha="1"
+                               cursorColor="#258cbb"
+                               cursorPosition="MOUSE"
+                               limitToGraph="g1"
+                               pan="true"
+                               valueLineAlpha="0.2"
+                               valueLineBalloonEnabled="true"
+                               valueLineEnabled="true"
+                               valueZoomable="true"/>
+
+
+
+            <chart:legend autoMargins="false"
+                          marginBottom="20"
+                          markerType="CIRCLE"
+                          position="BOTTOM"
+                          valueText="[[category]]: [[value]] руб."/>
+
+
+
+
+            <chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Main title"/>
+                <chart:title alpha="0.5"
+                             color="BISQUE"
+                             size="12"
+                             text="Subtitle"/>
+            </chart:titles>
+
+
+            <chart:export/>
+            <!--chart:export fileName="my-chart" position="TOP_RIGHT">
+                <chart:menu>
+                    <chart:item label="PNG" title="Save as PNG" format="PNG"/>
+                    <chart:item label="JPG" title="Save as JPG" format="JPG"/>
+                </chart:menu>
+            </chart:export-->
+            <!--Настройка прокрутки-->
+            <!--chart:chartScrollbarSettings graph="g1"
+                                          usePeriod="10mm"
+                                          position="TOP"/-->
+        </chart:serialChart>
+
+
+
+
+
+    </layout>
+</fragment>

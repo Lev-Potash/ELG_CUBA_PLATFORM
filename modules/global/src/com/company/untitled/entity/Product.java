@@ -2,7 +2,7 @@ package com.company.untitled.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.BaseIdentityIdEntity;
-import com.haulmont.cuba.core.entity.StandardEntity;
+//import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.global.DdlGeneration;
 
 import javax.persistence.Column;

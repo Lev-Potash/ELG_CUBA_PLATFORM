@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd" >
+
+
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+                    view="_local">
+            <loader id="productDl" >
+                <query><![CDATA[SELECT p FROM Product p]]></query>
+            </loader>
+        </collection>
+    </data>
+
+    <layout>
+        <chart:pieChart id="pieChart"
+                        dataContainer="productDc"
+                        height="100%"
+                        titleField="country"
+                        valueField="litres"
+                        width="100%"/>
+    </layout>
+</fragment>
