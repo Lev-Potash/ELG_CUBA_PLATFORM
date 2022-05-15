@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://hostScreenDemo.caption"
+        messagesPack="com.company.untitled.web.screens.main">
+    <layout>
+        <groupBox id="serialChartBox" caption="Serial Chart" width="100%" height="100%">
+            <fragment screen="untitled_SerialChartWidget" height="100%" width="100%"/>
+            <fragment screen="untitled_SerialChartWidget3" height="100%" width="100%"/>
+        </groupBox>
+    </layout>
+</window>

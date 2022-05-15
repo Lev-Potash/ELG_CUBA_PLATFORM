@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+        >
+            <loader id="productDl" >
+                <query>SELECT p FROM untitled_Product p ORDER BY p.name</query>
+            </loader>
+        </collection>
+    </data>
+    <layout>
+        <chart:serialChart id="serialChartId"
+                           additionalFields="id"
+                           addClassNames="true"
+                           autoMargins="false"
+                           categoryField="name"
+                           dataContainer="productDc"
+                           height="100%"
+                           marginBottom="26"
+                           marginLeft="30"
+                           marginRight="8"
+                           marginTop="10"
+                           startDuration="1"
+                           theme="LIGHT"
+                           width="100%">
+            <chart:valueAxes>
+                <chart:axis id="serialAxis"
+                            axisAlpha="0"
+                            position="LEFT"/>
+            </chart:valueAxes>
+            <chart:balloon adjustBorderColor="false"
+                           color="WHITE"
+                           horizontalPadding="10"
+                           verticalPadding="8"/>
+            <chart:graphs><!--alphaField="alpha" dashLengthField="dashLengthColumn" dashLengthField="dashLengthLine"-->
+                <chart:graph
+                             balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                             &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;"
+
+                             fillAlphas="1"
+                             title="Цена"
+                             type="COLUMN"
+                             valueField="cost"/>
+                <chart:graph balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                             &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;"
+                             bullet="ROUND"
+                             bulletBorderAlpha="1"
+                             bulletBorderThickness="3"
+                             bulletColor="WHITE"
+                             bulletSize="7"
+
+                             fillAlphas="0"
+                             lineAlpha="1"
+                             lineThickness="3"
+                             title="cost"
+                             useLineColorForBulletBorder="true"
+                             valueField="cost"/>
+            </chart:graphs>
+            <chart:categoryAxis axisAlpha="0"
+                                gridPosition="START"
+                                tickLength="0"/>
+            <chart:export/>
+        </chart:serialChart>
+    </layout>
+</fragment>

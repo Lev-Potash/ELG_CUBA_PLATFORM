@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+        >
+            <loader id="productDl" >
+                <query>SELECT p FROM untitled_Product p ORDER BY p.name</query>
+            </loader>
+        </collection>
+    </data>
+
+    <layout>
+        <chart:serialChart id="serialChartId"
+                           dataContainer="productDc">
+            <!--chart:valueAxes>
+                <chart:axis id="serialAxis"
+                            axisAlpha="0"
+                            position="LEFT"/>
+            </chart:valueAxes>
+            <chart:graphs>
+                <chart:graph valueField="value"
+                             balloonText="[[value]]">
+                </chart:graph>
+            </chart:graphs>
+            <chart:categoryAxis dashLength="1"
+                                minorGridEnabled="true"/-->
+        </chart:serialChart>
+    </layout>
+</fragment>
