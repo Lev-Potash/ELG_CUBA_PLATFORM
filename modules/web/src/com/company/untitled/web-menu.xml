@@ -12,5 +12,6 @@
         <item screen="untitled_RequestItem2.browse" caption="mainMsg://menu_config.untitled_RequestItem2.browse"/>
         <item screen="untitled_Supplier2.browse" caption="mainMsg://menu_config.untitled_Supplier2.browse"/>
         <item screen="untitled_HostScreenDemo" caption="mainMsg://menu_config.untitled_HostScreenDemo"/>
+        <item screen="untitled_DateFieldScreen" caption="mainMsg://menu_config.untitled_DateFieldScreen"/>
     </menu>
 </menu-config>

@@ -3,9 +3,9 @@
         caption="msg://hostScreenDemo.caption"
         messagesPack="com.company.untitled.web.screens.main">
     <layout>
-        <groupBox id="serialChartBox" caption="Serial Chart" width="100%" height="100%">
-            <fragment screen="untitled_SerialChartWidget" height="100%" width="100%"/>
+        <groupBox id="serialChartBox" caption="SerialChart" width="100%" height="100%"/>
+            <!--fragment screen="untitled_SerialChartWidget" height="100%" width="100%"/>
             <fragment screen="untitled_SerialChartWidget3" height="100%" width="100%"/>
-        </groupBox>
+        </groupBox--><!--groupBox id="addressBox" caption="Address"/-->
     </layout>
 </window>

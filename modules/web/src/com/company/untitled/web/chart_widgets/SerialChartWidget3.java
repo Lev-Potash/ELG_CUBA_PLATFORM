@@ -29,6 +29,11 @@ public class SerialChartWidget3 extends ScreenFragment {
     @Inject
     private SerialChart serialChartId;
 
+    /*@Subscribe(target = Target.PARENT_CONTROLLER)
+    private void onBeforeShowHost(Screen.BeforeShowEvent event) {
+        productDl.load();
+    }*/
+
     @Subscribe
     public void onInit(InitEvent event) {
         productDl.load();
@@ -37,6 +42,7 @@ public class SerialChartWidget3 extends ScreenFragment {
 
     @Subscribe
     public void onAfterInit(AfterInitEvent event) {
+        //setSerialChart();
         serialChartId.setDataProvider(new ContainerDataProvider(productDc));
         serialChartId.setCategoryField("name");
         List<String> values = Arrays.asList("id");
@@ -94,11 +100,11 @@ public class SerialChartWidget3 extends ScreenFragment {
 
 
 
-                //.startDuration("1")
-                //.theme("LIGHT")
-
-                //.setDataProvider(new ContainerDataProvider(productDc))
-        //.setDataContainer("productDc")
+//                .startDuration("1")
+//                .theme("LIGHT")
+//
+//                .setDataProvider(new ContainerDataProvider(productDc))
+//        .setDataContainer("productDc")
 
 
         /*.setMarginBottom("26")
@@ -137,6 +143,65 @@ public class SerialChartWidget3 extends ScreenFragment {
                 */
 
     }
+
+//    public void setSerialChart() {
+//
+//        serialChartId.setDataProvider(new ContainerDataProvider(productDc));
+//        serialChartId.setCategoryField("name");
+//        List<String> values = Arrays.asList("id");
+//        serialChartId.setAdditionalFields(values)
+//                .setAddClassNames(Boolean.valueOf("true"))
+//                .setAutoMargins(Boolean.valueOf("false"))
+//                .setCategoryField("name")
+//                .setMarginBottom(26)
+//                .setMarginLeft(35)
+//                .setMarginRight(8)
+//                .setMarginTop(10)
+//                .setStartDuration((double) 1)
+//                .setTheme(ChartTheme.valueOf("LIGHT"));
+//        serialChartId.setWidth("100%");
+//        serialChartId.setHeight("100%");
+//        //List<ValueAxis> valuesAxes = List<ValueAxis> Arrays.asList("0", "LEFT");
+//        serialChartId.addValueAxes(new ValueAxis()
+//                .setPosition(LEFT)
+//                .setAxisAlpha((double) 0)
+//        );
+//
+//        serialChartId.setBalloon(new Balloon()
+//                .setAdjustBorderColor(Boolean.valueOf("false"))
+//                .setColor(Color.valueOf("WHITE"))
+//                .setHorizontalPadding(10)
+//                .setVerticalPadding(8));
+//        serialChartId.addGraphs(new Graph()
+//                        .setBalloonText("&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;&lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;")
+//                        .setFillAlphas((double) 1)
+//                        .setTitle("Цена")
+//                        .setType(GraphType.valueOf("COLUMN"))
+//                        .setValueField("cost"),
+//                new Graph()
+//                        .setBalloonText("&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;" +
+//                                "&lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;")
+//                        .setBullet(BulletType.valueOf("ROUND"))
+//                        .setBulletBorderAlpha((double) 1)
+//                        .setBulletBorderThickness(3)
+//                        .setBulletColor(Color.valueOf("WHITE"))
+//                        .setBulletSize(7)
+//                        .setFillAlphas((double) 0)
+//                        .setLineAlpha((double) 1)
+//                        .setLineThickness(3)
+//                        .setTitle("cost")
+//                        .setUseLineColorForBulletBorder(true)
+//                        .setValueField("cost")
+//        );
+//        serialChartId.setCategoryAxis(new CategoryAxis()
+//                .setAxisAlpha((double) 0)
+//                .setGridPosition(GridPosition.valueOf("START"))
+//                .setTickLength(0)
+//
+//        );
+//        serialChartId.setExport(new Export());
+//
+//    }
 
 
 }
