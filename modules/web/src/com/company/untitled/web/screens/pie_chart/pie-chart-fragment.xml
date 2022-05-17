@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+        >
+            <loader id="productDl" >
+                <query>SELECT p FROM untitled_Product p ORDER BY p.name</query>
+            </loader>
+        </collection>
+    </data>
+    <layout>
+        <chart:pieChart id="pieChartId"
+                                 >
+
+        </chart:pieChart>
+        <!--chart:pieChart id="pieChartId"
+                        dataContainer="customerDC"
+                        height="100%"
+                        align="MIDDLE_LEFT"
+                        titleField="first_name"
+                        valueField="count_hours"
+                        width="100%"
+                        caption="&#1043;&#1088;&#1072;&#1092;&#1080;&#1082; &#1088;&#1072;&#1073;&#1086;&#1095;&#1080;&#1093; &#1095;&#1072;&#1089;&#1086;&#1074; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;"
+        >
+
+            <chart:legend autoMargins="true"
+                          marginBottom="20"
+                          marginRight="100"
+                          markerType="CIRCLE"
+                          position="RIGHT"
+                          valueText="[[category]]: ([[value]] ч.)"/>
+            <chart:export/>
+        </chart:pieChart-->
+
+
+    </layout>
+</fragment>
