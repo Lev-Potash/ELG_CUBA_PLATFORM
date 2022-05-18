@@ -2,7 +2,6 @@ package com.company.untitled.web.chart_widgets;
 
 import com.company.untitled.entity.Product;
 import com.haulmont.addon.dashboard.web.annotation.DashboardWidget;
-//import com.haulmont.charts.gui.amcharts.model.Color;
 import com.haulmont.charts.gui.amcharts.model.*;
 import com.haulmont.charts.gui.components.charts.SerialChart;
 import com.haulmont.charts.gui.data.ContainerDataProvider;
@@ -11,16 +10,17 @@ import com.haulmont.cuba.gui.model.CollectionLoader;
 import com.haulmont.cuba.gui.screen.*;
 
 import javax.inject.Inject;
+
 import java.util.Arrays;
 import java.util.List;
 
 import static com.haulmont.charts.gui.amcharts.model.Position.LEFT;
 
-@UiController("untitled_SerialChartWidget")
-@UiDescriptor("serial-chart-widget.xml")
-@DashboardWidget(name = "SerialChartWidget")
+@UiController("untitled_SerialChartWidget4")
+@UiDescriptor("serial-chart-widget4.xml")
+@DashboardWidget(name = "SerialChartWidget4")
 @LoadDataBeforeShow
-public class SerialChartWidget extends ScreenFragment {
+public class SerialChartWidget4 extends ScreenFragment {
 
     @Inject
     private CollectionContainer<Product> productDc;
@@ -51,9 +51,10 @@ public class SerialChartWidget extends ScreenFragment {
         //serialChartId.setBackgroundColor(Color.valueOf("#333333"));
         //serialChartId.setStartDuration(0.2);
 
-        /*serialChartId.setDataProvider(new ContainerDataProvider(productDc));
+        serialChartId.setDataProvider(new ContainerDataProvider(productDc));
         serialChartId.setCategoryField("name");
         List<String> values = Arrays.asList("id");
+
         serialChartId.setAdditionalFields(values)
                 .setAddClassNames(Boolean.valueOf("true"))
                 .setAutoMargins(Boolean.valueOf("false"))
@@ -62,8 +63,10 @@ public class SerialChartWidget extends ScreenFragment {
                 .setMarginLeft(35)
                 .setMarginRight(8)
                 .setMarginTop(10)
+                .setColumnSpacing(20)
                 .setStartDuration((double) 1)
-                .setTheme(ChartTheme.valueOf("LIGHT"));
+                .setTheme(ChartTheme.valueOf("LIGHT"))
+                .setColumnSpacing3D(10);
         serialChartId.setWidth("100%");
         serialChartId.setHeight("100%");
         //List<ValueAxis> valuesAxes = List<ValueAxis> Arrays.asList("0", "LEFT");
@@ -77,7 +80,12 @@ public class SerialChartWidget extends ScreenFragment {
                 .setColor(Color.valueOf("WHITE"))
                 .setHorizontalPadding(10)
                 .setVerticalPadding(8));
+
+
+
         serialChartId.addGraphs(new Graph()
+                        .setId("g1")
+                        .setNegativeLineColor(Color.valueOf("CORAL"))
                         .setBalloonText("&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;&lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;")
                         .setFillAlphas((double) 1)
                         .setTitle("Цена")
@@ -102,21 +110,51 @@ public class SerialChartWidget extends ScreenFragment {
                         .setUseLineColorForBulletBorder(true)
                         .setValueField("cost")
         );
+
+
         serialChartId.setCategoryAxis(new CategoryAxis()
+                .setAxisColor(Color.valueOf("#DADADA"))
                 .setAxisAlpha((double) 0)
                 .setGridPosition(GridPosition.valueOf("START"))
                 .setTickLength(0)
 
         );
+        serialChartId.setBalloon(new Balloon()
+                                        .setAdjustBorderColor(false)
+                                        .setColor(Color.valueOf("WHITE"))
+                                        .setHorizontalPadding(10)
+                                        .setVerticalPadding(8)
+        );
         serialChartId.addTitles(new Title()
                 .setBold(true)
-                .setColor(Color.valueOf("BLUE"))
+                .setColor(Color.valueOf("DARKSLATEGREY"))
                 .setSize(20)
                 .setTabIndex(0)
                 .setText("Стоимость товара")
 
         );
-        serialChartId.setExport(new Export());*/
+
+        serialChartId.setChartCursor(new Cursor()
+                                                .setCursorAlpha(0.8)
+                                                .setCursorColor(Color.valueOf("BROWN"))
+                                                .setCursorPosition(CursorPosition.valueOf("MIDDLE"))
+                                                .setLimitToGraph("g1")
+                                                .setPan(true)
+                                                .setValueLineAlpha(0.8)
+                                                .setValueLineBalloonEnabled(true)
+                                                .setValueLineEnabled(true)
+                                                .setValueZoomable(true)
+        );
+
+        serialChartId.setLegend(new Legend()
+                                .setAutoMargins(true)
+                                .setMarginBottom(20)
+                                .setMarkerType(MarkerType.valueOf("CIRCLE"))
+                                .setPosition(LegendPosition.valueOf("BOTTOM"))
+                                .setAlign(Align.valueOf("LEFT"))
+
+        );
+        serialChartId.setExport(new Export());
 
     }
 

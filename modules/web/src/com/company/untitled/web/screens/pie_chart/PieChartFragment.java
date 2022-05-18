@@ -3,9 +3,7 @@ package com.company.untitled.web.screens.pie_chart;
 //import com.company.untitled.entity.Customer2;
 import com.company.untitled.entity.Product;
 import com.haulmont.addon.dashboard.web.annotation.DashboardWidget;
-import com.haulmont.charts.gui.amcharts.model.Export;
-import com.haulmont.charts.gui.amcharts.model.Legend;
-import com.haulmont.charts.gui.amcharts.model.MarkerType;
+import com.haulmont.charts.gui.amcharts.model.*;
 import com.haulmont.charts.gui.components.charts.PieChart;
 import com.haulmont.charts.gui.data.ContainerDataProvider;
 import com.haulmont.cuba.gui.components.Component;
@@ -41,9 +39,15 @@ public class PieChartFragment extends ScreenFragment {
         //pieChartId.setCategoryField("first_name");
         List<String> fields = Arrays.asList("name");
 
-        pieChartId.setTitleField("cost")
+        pieChartId.setTitleField("name")
                     .setValueField("cost")
-                    .setCaption("&#1043;&#1088;&#1072;&#1092;&#1080;&#1082; &#1088;&#1072;&#1073;&#1086;&#1095;&#1080;&#1093; &#1095;&#1072;&#1089;&#1086;&#1074; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;");
+                    .addTitles(new Title()
+                            .setBold(true)
+                            .setSize(18)
+                            .setColor(Color.valueOf("GRAY"))
+                            .setText("Цены на продукты")
+        );
+                    //setCaption("Цены на продукты");
                     //.setDataContainer("customerDC")
                     //.setHeight("100%")
 
@@ -58,7 +62,7 @@ public class PieChartFragment extends ScreenFragment {
                                         .setMarginRight(100)
                                         .setMarkerType(MarkerType.valueOf("CIRCLE"))
                                         .setPosition(RIGHT)
-                                        .setValueText("[["+fields+"]]: ([[value]] ч.)")
+                                        .setValueText("[[value]] ч.")
         )
                 .setExport(new Export());
 

@@ -36,67 +36,81 @@ public class SerialChartWidget3 extends ScreenFragment {
 
     @Subscribe
     public void onInit(InitEvent event) {
-        productDl.load();
+
+        serialChartId.setDataProvider(new ContainerDataProvider(productDc));
+        serialChartId.setCategoryField("name");
+        List<String> values = Arrays.asList("id");
+        serialChartId.setAdditionalFields(values)
+                .setAddClassNames(Boolean.valueOf("true"))
+                .setAutoMargins(Boolean.valueOf("false"))
+                .setCategoryField("name")
+                .setMarginBottom(26)
+                .setMarginLeft(35)
+                .setMarginRight(8)
+                .setMarginTop(10)
+                .setStartDuration((double) 1)
+                .setTheme(ChartTheme.valueOf("LIGHT"));
+        serialChartId.setWidth("100%");
+        serialChartId.setHeight("100%");
+        //List<ValueAxis> valuesAxes = List<ValueAxis> Arrays.asList("0", "LEFT");
+        serialChartId.addValueAxes(new ValueAxis()
+                .setPosition(LEFT)
+                .setAxisAlpha((double) 0)
+        );
+
+        serialChartId.setBalloon(new Balloon()
+                .setAdjustBorderColor(Boolean.valueOf("false"))
+                .setColor(Color.valueOf("WHITE"))
+                .setHorizontalPadding(10)
+                .setVerticalPadding(8));
+        serialChartId.addGraphs(new Graph()
+                        .setBalloonText("&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;&lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;")
+                        .setFillAlphas((double) 1)
+                        .setTitle("Цена")
+                        .setType(GraphType.valueOf("COLUMN"))
+                        .setValueField("cost"),
+                new Graph().setBalloon(new Balloon()
+                        .setFontSize(20)
+                        .setShadowAlpha(0.7)
+                        .setShadowColor(Color.valueOf("GREEN")).setTextAlign(Align.valueOf("CENTER"))
+                )
+                        .setBalloonText("[[title]] in [[category]] \n" +
+                                "[[value]] [[additional]]")
+                        .setBullet(BulletType.valueOf("ROUND"))
+                        .setBulletBorderAlpha((double) 1)
+                        .setBulletBorderThickness(3)
+                        .setBulletColor(Color.valueOf("WHITE"))
+                        .setBulletSize(7)
+                        .setFillAlphas((double) 0)
+                        .setLineAlpha((double) 1)
+                        .setLineThickness(3)
+                        .setTitle("cost")
+                        .setUseLineColorForBulletBorder(true)
+                        .setValueField("cost")
+        );
+        serialChartId.setCategoryAxis(new CategoryAxis()
+                .setAxisAlpha((double) 0)
+                .setGridPosition(GridPosition.valueOf("START"))
+                .setTickLength(0)
+
+        );
+        serialChartId.addTitles(new Title()
+                .setBold(true)
+                .setColor(Color.valueOf("BLUE"))
+                .setSize(20)
+                .setTabIndex(0)
+                .setText("Стоимость товара")
+
+        );
+        serialChartId.setExport(new Export());
 
     }
 
     @Subscribe
     public void onAfterInit(AfterInitEvent event) {
         //setSerialChart();
-        serialChartId.setDataProvider(new ContainerDataProvider(productDc));
-        serialChartId.setCategoryField("name");
-        List<String> values = Arrays.asList("id");
-        serialChartId.setAdditionalFields(values)
-                    .setAddClassNames(Boolean.valueOf("true"))
-                    .setAutoMargins(Boolean.valueOf("false"))
-                    .setCategoryField("name")
-                    .setMarginBottom(26)
-                    .setMarginLeft(35)
-                    .setMarginRight(8)
-                    .setMarginTop(10)
-                    .setStartDuration((double) 1)
-                    .setTheme(ChartTheme.valueOf("LIGHT"));
-        serialChartId.setWidth("100%");
-        serialChartId.setHeight("100%");
-        //List<ValueAxis> valuesAxes = List<ValueAxis> Arrays.asList("0", "LEFT");
-        serialChartId.addValueAxes(new ValueAxis()
-                                        .setPosition(LEFT)
-                                        .setAxisAlpha((double) 0)
-        );
+        productDl.load();
 
-        serialChartId.setBalloon(new Balloon()
-                        .setAdjustBorderColor(Boolean.valueOf("false"))
-                        .setColor(Color.valueOf("WHITE"))
-                        .setHorizontalPadding(10)
-                        .setVerticalPadding(8));
-        serialChartId.addGraphs(new Graph()
-                                .setBalloonText("&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;&lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;")
-                                .setFillAlphas((double) 1)
-                                .setTitle("Цена")
-                                .setType(GraphType.valueOf("COLUMN"))
-                                .setValueField("cost"),
-                                new Graph()
-                                .setBalloonText("&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;" +
-                                        "&lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; [[additional]]&lt;/span&gt;")
-                                .setBullet(BulletType.valueOf("ROUND"))
-                                .setBulletBorderAlpha((double) 1)
-                                .setBulletBorderThickness(3)
-                                .setBulletColor(Color.valueOf("WHITE"))
-                                .setBulletSize(7)
-                                .setFillAlphas((double) 0)
-                                .setLineAlpha((double) 1)
-                                .setLineThickness(3)
-                                .setTitle("cost")
-                                .setUseLineColorForBulletBorder(true)
-                                .setValueField("cost")
-        );
-        serialChartId.setCategoryAxis(new CategoryAxis()
-                                        .setAxisAlpha((double) 0)
-                                        .setGridPosition(GridPosition.valueOf("START"))
-                                        .setTickLength(0)
-
-        );
-        serialChartId.setExport(new Export());
 
 
 

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd" >
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+        >
+            <loader id="productDl" >
+                <query>SELECT p FROM untitled_Product p ORDER BY p.name</query>
+            </loader>
+        </collection>
+    </data>
+
+
+    <layout>
+        <!--chart:allLabels>
+            <chart:label x="200"
+                         y="700"
+                         text="You can place a label at any position on the chart"
+                         color="DARKBLUE"
+                         align="CENTER"
+                         rotation="-30"/>
+        </chart:allLabels-->
+
+        <!--chart:graphs>
+            <chart:graph balloonText="[[category]]: [[value]] m/s"
+                         bullet="ROUND"
+                         fillAlphas="0.3"
+                         valueField="value"/>
+        </chart:graphs>
+        <chart:balloon adjustBorderColor="false"
+                       color="WHITE"
+                       horizontalPadding="10"
+                       verticalPadding="8"/-->
+
+
+
+
+        <chart:serialChart  id="serialChartId"
+
+
+
+
+
+
+
+        ><!--
+                            additionalFields="id"
+                            addClassNames="true"
+                            autoMargins="false"
+                            categoryField="name"
+                            dataContainer="productDc"
+                            height="100%"
+                            marginBottom="26"
+                            marginLeft="35"
+                            marginRight="8"
+                            marginTop="10"
+                            columnSpacing="20"
+                            startDuration="1"
+                            width="100%"
+                            columnSpacing3D="10"
+
+
+
+
+
+                            theme="NONE"
+                            plotAreaFillAlphas="0.8"
+                            plotAreaBorderAlpha="0"
+                            -->
+            <!--chart:valueAxes>
+                <chart:axis axisAlpha="0"
+                            position="LEFT"/>
+            </chart:valueAxes>
+
+            <chart:graphs>
+                <chart:graph id="g1"
+
+                             negativeLineColor="CORAL"
+                             fillAlphas="1"
+
+                             type="COLUMN"
+                             valueField="cost"
+                             title="Цена"
+                             balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                             &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; &lt;/span&gt;">
+                </chart:graph>
+                <chart:graph id="g1"
+                             title="Cost"
+                             type="COLUMN"
+                             valueField="cost"
+
+                             balloonText="&lt;span style='font-size:12px;'&gt;[[title]] in [[category]]:&lt;br&gt;
+                             &lt;span style='font-size:20px;'&gt;[[value]]&lt;/span&gt; &lt;/span&gt;">
+                </chart:graph>
+            </chart:graphs>
+            <chart:categoryAxis axisColor="#DADADA"
+                                axisAlpha="0"
+                                gridPosition="START"
+                                tickLength="0"/>
+
+
+            <chart:balloon adjustBorderColor="false"
+                           color="WHITE"
+                           horizontalPadding="10"
+                           verticalPadding="8"/-->
+
+            <!--chart:chartScrollbar graph="g1"
+                                  autoGridCount="true"
+                                  scrollbarHeight="20"
+                                  backgroundAlpha="0"
+                                  selectedGraphFillColor="CHOCOLATE"
+
+
+
+            /-->
+            <!--chart:titles>
+                <chart:title alpha="1"
+                             bold="true"
+                             color="DARKSLATEGREY"
+                             size="20"
+                             tabIndex="0"
+                             text="Назначенные часы"/>
+                <chart:title alpha="0.9"
+                             color="BISQUE"
+                             size="12"
+                             text="Subtitle"/>
+            </chart:titles>
+
+
+
+            <chart:chartCursor cursorAlpha="0.8"
+
+                               cursorColor="BROWN"
+                               cursorPosition="MIDDLE"
+                               limitToGraph="g1"
+                               pan="true"
+                               valueLineAlpha="0.8"
+                               valueLineBalloonEnabled="true"
+                               valueLineEnabled="true"
+                               valueZoomable="true"/-->
+
+            <!-- cursorColor="#258cbb" -->
+
+            <!--chart:legend autoMargins="true"
+                          marginBottom="20"
+                          markerType="CIRCLE"
+                          position="BOTTOM"
+                          align="LEFT"
+
+
+            /-->
+
+
+            <!--
+
+
+            chart:legend autoMargins="false"
+                          marginBottom="20"
+                          markerType="CIRCLE"
+                          position="BOTTOM"
+                          valueText="[[category]]: [[value]] руб."/-->
+
+
+
+
+
+
+
+            <!--chart:export position="TOP_RIGHT"/-->
+
+        </chart:serialChart>
+
+
+
+
+
+
+
+
+
+
+
+    </layout>
+</fragment>

@@ -2,6 +2,7 @@ package com.company.untitled.web.screens.radar_chart;
 
 import com.company.untitled.entity.Product;
 import com.haulmont.addon.dashboard.web.annotation.DashboardWidget;
+import com.haulmont.charts.gui.amcharts.model.*;
 import com.haulmont.charts.gui.components.charts.RadarChart;
 import com.haulmont.charts.gui.data.ContainerDataProvider;
 import com.haulmont.cuba.gui.model.CollectionContainer;
@@ -32,6 +33,26 @@ public class RadarChartFragments extends ScreenFragment {
         radarChartId.setDataProvider(new ContainerDataProvider(productDc));
         List<String> fields = Arrays.asList("last_name", "email");
         radarChartId.setAdditionalFields(fields);
+
+        radarChartId.setCategoryField("first_name")
+                    .setStartDuration((double) 2)
+                    .setTheme(ChartTheme.valueOf("PATTERNS"))
+                    .setBorderColor(Color.valueOf("GOLD"));
+
+        radarChartId.setWidth("100%");
+        radarChartId.setHeight("100%");
+
+        radarChartId.addValueAxes(new ValueAxis()
+                                    .setAutoGridCount(false)
+                                    .setAxisAlpha(0.2)
+                                    .setFillAlpha(0.05)
+                                    .setFillColor(Color.valueOf("WHITE"))
+                                    .setGridAlpha(0.08)
+                                    .setGridType(GridType.valueOf("CIRCLES"))
+                                    .setMinimum((double) 0)
+                                    .setPosition(Position.valueOf("LEFT"))
+
+        );
 
     }
 
