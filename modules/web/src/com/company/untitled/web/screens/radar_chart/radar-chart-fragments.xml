@@ -13,7 +13,19 @@
 
 
     <layout>
-        <chart:radarChart id="radarChartId"
+        <chart:radarChart id="radarChartId" height="100%">
+
+        </chart:radarChart>
+
+
+
+
+
+
+
+
+
+        <!--chart:radarChart id="radarChartId"
                           categoryField="first_name"
                           dataContainer="productDc"
                           height="100%"
@@ -77,7 +89,7 @@
                           position="TOP"
                           valueText="[[category]]"/>
             <chart:export/>
-        </chart:radarChart>
+        </chart:radarChart-->
 
 
 

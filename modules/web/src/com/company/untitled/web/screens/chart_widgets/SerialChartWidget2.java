@@ -1,4 +1,4 @@
-package com.company.untitled.web.chart_widgets;
+package com.company.untitled.web.screens.chart_widgets;
 
 import com.company.untitled.entity.Product;
 import com.haulmont.addon.dashboard.web.annotation.DashboardWidget;

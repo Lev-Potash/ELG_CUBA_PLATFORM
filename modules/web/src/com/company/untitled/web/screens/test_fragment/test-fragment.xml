@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product">
+            <loader id="productDl">
+                <query>SELECT p FROM untitled_Product p ORDER BY p.name</query>
+            </loader>
+
+        </collection>
+    </data>
+
+    <layout>
+        <chart:serialChart id="serialChartId"
+                           categoryField="name"
+                           plotAreaFillAlphas="0.1"
+                           startDuration="1"
+                           width="100%"
+                           theme="LIGHT">
+            <chart:legend position="TOP" valueWidth="150" valueAlign="LEFT" periodValueText="Total: [[value.sum]]"/>
+            <!--chart:categoryAxis gridPosition="START" /-->
+            <chart:valueAxes>
+                <chart:axis position="LEFT" />
+            </chart:valueAxes>
+            <chart:export/>
+            <chart:chartCursor cursorAlpha="0"/>
+        </chart:serialChart>
+    </layout>
+</fragment>

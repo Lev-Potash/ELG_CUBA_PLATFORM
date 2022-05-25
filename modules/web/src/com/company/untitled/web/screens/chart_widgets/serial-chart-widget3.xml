@@ -12,7 +12,11 @@
 
     <layout>
         <chart:serialChart id="serialChartId"
-                           dataContainer="productDc">
+                           >
+            <chart:categoryAxis gridPosition="START" />
+            <chart:valueAxes>
+                <chart:axis position="LEFT" />
+            </chart:valueAxes>
             <!--chart:valueAxes>
                 <chart:axis id="serialAxis"
                             axisAlpha="0"

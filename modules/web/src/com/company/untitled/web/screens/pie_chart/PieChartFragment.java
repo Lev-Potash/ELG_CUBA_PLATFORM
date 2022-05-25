@@ -67,6 +67,7 @@ public class PieChartFragment extends ScreenFragment {
                 .setExport(new Export());
 
         pieChartId.setAdditionalFields(fields);
+        pieChartId.repaint();
 
     }
 

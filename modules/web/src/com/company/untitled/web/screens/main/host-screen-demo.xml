@@ -2,10 +2,28 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://hostScreenDemo.caption"
         messagesPack="com.company.untitled.web.screens.main">
-    <layout>
-        <groupBox id="serialChartBox" caption="SerialChart" width="100%" height="100%"/>
-            <!--fragment screen="untitled_SerialChartWidget" height="100%" width="100%"/>
-            <fragment screen="untitled_SerialChartWidget3" height="100%" width="100%"/>
-        </groupBox--><!--groupBox id="addressBox" caption="Address"/-->
+    <data>
+        <instance id="chartDc"
+                  class="com.company.untitled.entity.ChartType"
+                  view="_local">
+            <loader/>
+        </instance>
+    </data>
+    <layout spacing="true">
+        <cssLayout height="1000px" responsive="false" width="100%" >
+            <vbox margin="true" spacing="true" stylename="group-panel">
+                <lookupField id="lookup" textInputAllowed="true" dataContainer="chartDc" nullName="..." optionsEnum="com.company.untitled.entity.ChartEnum" property="serial_chart"/>
+            </vbox>
+                <!--groupBox id="serialChartBox" caption="SerialChart" height="100%" width="100%">
+                    <fragment screen="untitled_SerialChartWidget" height="100%" width="100%"/>
+                    <fragment screen="untitled_SerialChartWidget3" height="100%" width="100%"/>
+                </groupBox--><!--groupBox id="addressBox" caption="Address"/-->
+            <vbox htmlSanitizerEnabled="true" height="100%" margin="true" spacing="true" stylename="group-panel">
+                <groupBox stylename="well" id="serialChartBox1" caption="SerialChart" width="100%"/>
+                <groupBox stylename="well" id="serialChartBox2" caption="SerialChart" width="100%"/>
+                <groupBox stylename="well" id="pieChartBox" caption="SerialChart" width="100%"/>
+                <groupBox stylename="well" id="radarChartBox" caption="SerialChart" width="100%"/>
+            </vbox>
+        </cssLayout>
     </layout>
 </window>

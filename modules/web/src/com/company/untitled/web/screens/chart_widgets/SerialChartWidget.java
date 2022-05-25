@@ -1,9 +1,8 @@
-package com.company.untitled.web.chart_widgets;
+package com.company.untitled.web.screens.chart_widgets;
 
 import com.company.untitled.entity.Product;
 import com.haulmont.addon.dashboard.web.annotation.DashboardWidget;
 //import com.haulmont.charts.gui.amcharts.model.Color;
-import com.haulmont.charts.gui.amcharts.model.*;
 import com.haulmont.charts.gui.components.charts.SerialChart;
 import com.haulmont.charts.gui.data.ContainerDataProvider;
 import com.haulmont.cuba.gui.model.CollectionContainer;
@@ -11,10 +10,6 @@ import com.haulmont.cuba.gui.model.CollectionLoader;
 import com.haulmont.cuba.gui.screen.*;
 
 import javax.inject.Inject;
-import java.util.Arrays;
-import java.util.List;
-
-import static com.haulmont.charts.gui.amcharts.model.Position.LEFT;
 
 @UiController("untitled_SerialChartWidget")
 @UiDescriptor("serial-chart-widget.xml")

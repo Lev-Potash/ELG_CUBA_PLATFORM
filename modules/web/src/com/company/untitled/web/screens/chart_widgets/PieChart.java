@@ -1,4 +1,4 @@
-package com.company.untitled.web.chart_widgets;
+package com.company.untitled.web.screens.chart_widgets;
 
 import com.haulmont.cuba.gui.screen.ScreenFragment;
 import com.haulmont.cuba.gui.screen.UiController;

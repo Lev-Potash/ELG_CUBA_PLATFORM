@@ -7,5 +7,6 @@
         <class>com.company.untitled.entity.Supplier</class>
         <class>com.company.untitled.entity.RequestItem</class>
         <class>com.company.untitled.entity.Customer</class>
+        <class>com.company.untitled.entity.ChartType</class>
     </persistence-unit>
 </persistence>

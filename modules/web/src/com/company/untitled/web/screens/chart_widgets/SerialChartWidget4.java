@@ -1,4 +1,4 @@
-package com.company.untitled.web.chart_widgets;
+package com.company.untitled.web.screens.chart_widgets;
 
 import com.company.untitled.entity.Product;
 import com.haulmont.addon.dashboard.web.annotation.DashboardWidget;
@@ -32,8 +32,12 @@ public class SerialChartWidget4 extends ScreenFragment {
     private SerialChart serialChartId;
 
     @Subscribe
-    public void onAfterInit(AfterInitEvent event) {
+    public void onInit(InitEvent event) {
+
         productDl.load();
+
+
+
 
         /*for (Product p : productDc.getItems()) {
 
@@ -43,7 +47,7 @@ public class SerialChartWidget4 extends ScreenFragment {
 
 
     @Subscribe
-    private void onInit(InitEvent event) {
+    private void onAfterInit(AfterInitEvent event) {
         serialChartId.setDataProvider(new ContainerDataProvider(productDc));
         serialChartId.setCategoryField("name");
         //serialChartId.setGraphs().
@@ -120,10 +124,10 @@ public class SerialChartWidget4 extends ScreenFragment {
 
         );
         serialChartId.setBalloon(new Balloon()
-                                        .setAdjustBorderColor(false)
-                                        .setColor(Color.valueOf("WHITE"))
-                                        .setHorizontalPadding(10)
-                                        .setVerticalPadding(8)
+                .setAdjustBorderColor(false)
+                .setColor(Color.valueOf("WHITE"))
+                .setHorizontalPadding(10)
+                .setVerticalPadding(8)
         );
         serialChartId.addTitles(new Title()
                 .setBold(true)
@@ -135,26 +139,28 @@ public class SerialChartWidget4 extends ScreenFragment {
         );
 
         serialChartId.setChartCursor(new Cursor()
-                                                .setCursorAlpha(0.8)
-                                                .setCursorColor(Color.valueOf("BROWN"))
-                                                .setCursorPosition(CursorPosition.valueOf("MIDDLE"))
-                                                .setLimitToGraph("g1")
-                                                .setPan(true)
-                                                .setValueLineAlpha(0.8)
-                                                .setValueLineBalloonEnabled(true)
-                                                .setValueLineEnabled(true)
-                                                .setValueZoomable(true)
+                .setCursorAlpha(0.8)
+                .setCursorColor(Color.valueOf("BROWN"))
+                .setCursorPosition(CursorPosition.valueOf("MIDDLE"))
+                .setLimitToGraph("g1")
+                .setPan(true)
+                .setValueLineAlpha(0.8)
+                .setValueLineBalloonEnabled(true)
+                .setValueLineEnabled(true)
+                .setValueZoomable(true)
         );
 
         serialChartId.setLegend(new Legend()
-                                .setAutoMargins(true)
-                                .setMarginBottom(20)
-                                .setMarkerType(MarkerType.valueOf("CIRCLE"))
-                                .setPosition(LegendPosition.valueOf("BOTTOM"))
-                                .setAlign(Align.valueOf("LEFT"))
+                .setAutoMargins(true)
+                .setMarginBottom(20)
+                .setMarkerType(MarkerType.valueOf("CIRCLE"))
+                .setPosition(LegendPosition.valueOf("BOTTOM"))
+                .setAlign(Align.valueOf("LEFT"))
 
         );
+        //serialChartId.repaint();
         serialChartId.setExport(new Export());
+
 
     }
 
