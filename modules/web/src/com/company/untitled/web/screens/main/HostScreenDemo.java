@@ -55,13 +55,13 @@ public class HostScreenDemo extends Screen {
         //serialChartFragment.setSerialChart();
         serialChartBox1.add(testSerialChartFragment.getFragment());*/
 
-        SerialChartWidget3 serialChartFragment = fragments.create(this, SerialChartWidget3.class);
+        /*SerialChartWidget3 serialChartFragment = fragments.create(this, SerialChartWidget3.class);
         //serialChartFragment.setSerialChart();
-        serialChartBox2.add(serialChartFragment.getFragment());
+        serialChartBox2.add(serialChartFragment.getFragment());*/
 
-        PieChartFragment pieChartFragment = fragments.create(this, PieChartFragment.class);
+        /*PieChartFragment pieChartFragment = fragments.create(this, PieChartFragment.class);
         //serialChartFragment.setSerialChart();
-        pieChartBox.add(pieChartFragment.getFragment());
+        pieChartBox.add(pieChartFragment.getFragment());*/
 
         RadarChartFragments radarChartFragment = fragments.create(this, RadarChartFragments.class);
         //serialChartFragment.setSerialChart();
@@ -90,28 +90,53 @@ public class HostScreenDemo extends Screen {
 
 
 
-    @Install(to = "lookup", subject = "lookupSelectHandler")
+/*    @Install(to = "lookup", subject = "lookupSelectHandler")
     private void lookupLookupSelectHandler(Collection collection) {
 
     }
 
     public LookupField<ChartEnum> getLookup() {
         return (LookupField<ChartEnum>) lookup;
-    }
+    }*/
 
     @Subscribe("lookup")
     public void onLookupValueChange(HasValue.ValueChangeEvent<ChartType> event) {
         // Получаем значение из выбранного элемента в LookupField
         String s = String.valueOf(event.getComponent().getValue());
 
-        if (s.equals("SERIAL_CHART")) {
+        /*if (s.equals("SERIAL_CHART")) {
             TestFragment testSerialChartFragment = fragments.create(this, TestFragment.class);
             //serialChartFragment.setSerialChart();
             serialChartBox1.add(testSerialChartFragment.getFragment());
 
+        }*/
+
+        switch (s) {
+            case "SERIAL_CHART":
+                TestFragment testSerialChartFragment = fragments.create(this, TestFragment.class);
+                //serialChartFragment.setSerialChart();
+                serialChartBox1.add(testSerialChartFragment.getFragment());
+                SerialChartWidget3 serialChartFragment = fragments.create(this, SerialChartWidget3.class);
+                //serialChartFragment.setSerialChart();
+                serialChartBox2.add(serialChartFragment.getFragment());
+                break;
+            case "PIE_CHART":
+                PieChartFragment pieChartFragment = fragments.create(this, PieChartFragment.class);
+                //serialChartFragment.setSerialChart();
+                pieChartBox.add(pieChartFragment.getFragment());
+                break;
+            case "RADAR_CHART":
+                RadarChartFragments radarChartFragment = fragments.create(this, RadarChartFragments.class);
+                //serialChartFragment.setSerialChart();
+                radarChartBox.add(radarChartFragment.getFragment());
+                break;
+            default:
+                break;
         }
 
-        lookup.getNewOptionHandler();
+
+
+        //lookup.getNewOptionHandler();
         //lookup.addValueChangeListener(event.getComponent())*/
 
     }
