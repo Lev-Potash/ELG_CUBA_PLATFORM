@@ -137,6 +137,7 @@ public class HostScreenDemo extends Screen implements ChartsFragments<ScreenFrag
     @Override
     public ScreenFragment paintChart(Fragments fragments, Class<? extends ScreenFragment> clazz, GroupBoxLayout groupBoxLayout) {
         ScreenFragment chartFragment = fragments.create(this, clazz);
+        groupBoxLayout.removeAll();
         groupBoxLayout.add(chartFragment.getFragment());
         return null;
     }
