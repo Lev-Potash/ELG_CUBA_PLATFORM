@@ -80,18 +80,6 @@ public class HostScreenDemo extends Screen implements ChartsFragments<ScreenFrag
 
     }
 
-    @Subscribe
-    public void onInit1(InitEvent event) {
-        
-    }
-
-    @Subscribe("lookup")
-    public void onLookupValueChange1(HasValue.ValueChangeEvent<ChartType> event) {
-
-    }
-
-
-
 /*    @Install(to = "lookup", subject = "lookupSelectHandler")
     private void lookupLookupSelectHandler(Collection collection) {
 
