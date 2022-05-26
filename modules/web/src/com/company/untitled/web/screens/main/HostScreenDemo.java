@@ -63,9 +63,9 @@ public class HostScreenDemo extends Screen {
         //serialChartFragment.setSerialChart();
         pieChartBox.add(pieChartFragment.getFragment());*/
 
-        RadarChartFragments radarChartFragment = fragments.create(this, RadarChartFragments.class);
+        /*RadarChartFragments radarChartFragment = fragments.create(this, RadarChartFragments.class);
         //serialChartFragment.setSerialChart();
-        radarChartBox.add(radarChartFragment.getFragment());
+        radarChartBox.add(radarChartFragment.getFragment());*/
 
 
 
