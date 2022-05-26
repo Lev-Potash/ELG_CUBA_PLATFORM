@@ -20,9 +20,9 @@
                 </groupBox--><!--groupBox id="addressBox" caption="Address"/-->
             <vbox htmlSanitizerEnabled="true" height="100%" margin="true" spacing="true" stylename="group-panel">
                 <groupBox stylename="well" id="serialChartBox1" caption="SerialChart" width="100%"/>
-                <groupBox stylename="well" id="serialChartBox2" caption="SerialChart" width="100%"/>
+                <!--groupBox stylename="well" id="serialChartBox2" caption="SerialChart" width="100%"/>
                 <groupBox stylename="well" id="pieChartBox" caption="SerialChart" width="100%"/>
-                <groupBox stylename="well" id="radarChartBox" caption="SerialChart" width="100%"/>
+                <groupBox stylename="well" id="radarChartBox" caption="SerialChart" width="100%"/-->
             </vbox>
         </cssLayout>
     </layout>
