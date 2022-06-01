@@ -9,7 +9,9 @@ public enum ChartEnum implements EnumClass<Integer> {
 
     SERIAL_CHART(10),
     PIE_CHART(20),
-    RADAR_CHART(30);
+    RADAR_CHART(30),
+    XY_CHART(40),
+    FUNNEL_CHART(50);
 
     private Integer id;
 

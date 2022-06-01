@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+        >
+            <loader id="productDl" >
+                <query>SELECT p FROM untitled_Product p ORDER BY p.cost desc</query>
+            </loader>
+        </collection>
+    </data>
+    <layout>
+        <chart:xyChart id="xyChart"
+                       autoMarginOffset="20"
+                       dataContainer="productDc"
+                       height="100%"
+                       marginBottom="60"
+                       marginLeft="64"
+                       startDuration="1"
+                       theme="LIGHT"
+                       width="100%">
+            <chart:chartCursor/>
+            <chart:chartScrollbar/>
+            <chart:graphs>
+                <chart:graph balloonText="x:[[x]] y:[[y]]"
+                             bullet="TRIANGLE_UP"
+                             fillAlphas="0"
+                             lineAlpha="0"
+                             lineColor="#FF6600"
+                             xField="count"
+                             yField="cost"/>
+                <!--chart:graph balloonText="x:[[x]] y:[[y]]"
+                             bullet="TRIANGLE_DOWN"
+                             fillAlphas="0"
+                             lineAlpha="0"
+                             lineColor="#FCD202"
+                             xField="cost"
+                             yField="count"/-->
+            </chart:graphs>
+            <chart:trendLines>
+                <chart:trendLine initialValue="1"
+                                 initialXValue="1"
+                                 lineColor="#FCD202"/>
+                <!--chart:trendLine finalValue="12"
+                                 finalXValue="12"
+                                 initialValue="2"
+                                 initialXValue="1"
+                                 lineColor="#FF6600"/>
+                <chart:trendLine finalValue="19"
+                                 finalXValue="12"
+                                 initialValue="1"
+                                 initialXValue="1"
+                                 lineColor="#FCD202"/-->
+            </chart:trendLines>
+            <chart:valueAxes>
+                <chart:axis axisAlpha="0"
+                            dashLength="1"
+                            position="BOTTOM"
+                            title="X Axis"/>
+                <chart:axis axisAlpha="0"
+                            dashLength="1"
+                            position="LEFT"
+                            title="Y Axis"/>
+            </chart:valueAxes>
+            <chart:export position="BOTTOM_RIGHT"/>
+        </chart:xyChart>
+    </layout>
+</fragment>

@@ -14,11 +14,33 @@ public class ChartType extends StandardEntity {
     @Column(name = "SERIAL_CHART")
     private String serial_chart;
 
+    @Column(name = "XY_CHART")
+    private String xy_chart;
+
+    @Column(name = "FUNNEL_CHART")
+    private String funnel_chart;
+
     @Column(name = "PIE_TYPE")
     private String pie_type;
 
     @Column(name = "RADAR_CHART")
     private String radar_chart;
+
+    public void setFunnel_chart(com.haulmont.reports.entity.charts.ChartType funnel_chart) {
+        this.funnel_chart = funnel_chart == null ? null : funnel_chart.getId();
+    }
+
+    public com.haulmont.reports.entity.charts.ChartType getFunnel_chart() {
+        return funnel_chart == null ? null : com.haulmont.reports.entity.charts.ChartType.fromId(funnel_chart);
+    }
+
+    public com.haulmont.reports.entity.charts.ChartType getXy_chart() {
+        return xy_chart == null ? null : com.haulmont.reports.entity.charts.ChartType.fromId(xy_chart);
+    }
+
+    public void setXy_chart(com.haulmont.reports.entity.charts.ChartType xy_chart) {
+        this.xy_chart = xy_chart == null ? null : xy_chart.getId();
+    }
 
     public com.haulmont.reports.entity.charts.ChartType getRadar_chart() {
         return radar_chart == null ? null : com.haulmont.reports.entity.charts.ChartType.fromId(radar_chart);

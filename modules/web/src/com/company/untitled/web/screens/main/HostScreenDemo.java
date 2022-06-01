@@ -20,7 +20,7 @@ import java.util.Collection;
 
 @UiController("untitled_HostScreenDemo")
 @UiDescriptor("host-screen-demo.xml")
-public class HostScreenDemo extends Screen implements ChartsFragments<ScreenFragment> {
+public class HostScreenDemo extends Screen /*implements ChartsFragments*/ {
     @Inject
     private Fragments fragments;
 
@@ -38,17 +38,19 @@ public class HostScreenDemo extends Screen implements ChartsFragments<ScreenFrag
 
     @Inject
     private LookupField/*<ChartEnum>*/ lookup;
+
+    /*@Inject
+    private InstanceContainer<com.company.untitled.entity.ChartType> chartDc;*/
+
     @Inject
-    private InstanceContainer<com.company.untitled.entity.ChartType> chartDc;
+    private ChartsFragments chartsFragments;
 
 
-    //@Inject
-    //private GroupBoxLayout addressBox;
 
     @Subscribe
     private void onInit(InitEvent event) {
 
-        
+
 
 
 
@@ -68,8 +70,6 @@ public class HostScreenDemo extends Screen implements ChartsFragments<ScreenFrag
         /*RadarChartFragments radarChartFragment = fragments.create(this, RadarChartFragments.class);
         //serialChartFragment.setSerialChart();
         radarChartBox.add(radarChartFragment.getFragment());*/
-
-
 
         //SerialChartWidget3 serialChartFragment = fragments.create(this, SerialChartWidget3.class);
         //serialChartFragment.setSerialChart();
@@ -94,68 +94,14 @@ public class HostScreenDemo extends Screen implements ChartsFragments<ScreenFrag
         // Получаем значение из выбранного элемента в LookupField
         String s = String.valueOf(event.getComponent().getValue());
 
-        /*if (s.equals("SERIAL_CHART")) {
-            TestFragment testSerialChartFragment = fragments.create(this, TestFragment.class);
-            //serialChartFragment.setSerialChart();
-            serialChartBox1.add(testSerialChartFragment.getFragment());
 
-        }*/
-
-        switch (s) {
-            case "SERIAL_CHART":
-                /*TestFragment testSerialChartFragment = fragments.create(this, TestFragment.class);
-                //serialChartFragment.setSerialChart();
-                serialChartBox1.add(testSerialChartFragment.getFragment());
-                SerialChartWidget3 serialChartFragment = fragments.create(this, SerialChartWidget3.class);
-                //serialChartFragment.setSerialChart();
-                serialChartBox2.add(serialChartFragment.getFragment());*/
-                paintChart(fragments, TestFragment.class, serialChartBox1);
-                break;
-            case "PIE_CHART":
-                paintChart(fragments, PieChartFragment.class, serialChartBox1);
-                /*PieChartFragment pieChartFragment = fragments.create(this, PieChartFragment.class);
-                //serialChartFragment.setSerialChart();
-                pieChartBox.add(pieChartFragment.getFragment());*/
-                break;
-            case "RADAR_CHART":
-                paintChart(fragments, RadarChartFragments.class, serialChartBox1);
-                /*RadarChartFragments radarChartFragment = fragments.create(this, RadarChartFragments.class);
-                //serialChartFragment.setSerialChart();
-                radarChartBox.add(radarChartFragment.getFragment());*/
-                break;
-            default:
-                break;
-        }
+        // Доступ к интерфейсу графиков
+        chartsFragments.printChart(s, fragments, serialChartBox1, this);
 
 
 
-        //lookup.getNewOptionHandler();
-        //lookup.addValueChangeListener(event.getComponent())*/
 
     }
-
-    @Override
-    public ScreenFragment paintChart(Fragments fragments, Class<? extends ScreenFragment> clazz, GroupBoxLayout groupBoxLayout) {
-        ScreenFragment chartFragment = fragments.create(this, clazz);
-        groupBoxLayout.removeAll();
-        groupBoxLayout.add(chartFragment.getFragment());
-        return null;
-    }
-
-
-
-
-
-
-    /*@Subscribe
-    public void onBeforeShow(BeforeShowEvent event) {
-
-
-    }*/
-    
-    
-
-
 
 
 }

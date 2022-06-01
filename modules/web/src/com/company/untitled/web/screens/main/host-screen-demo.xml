@@ -2,17 +2,18 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://hostScreenDemo.caption"
         messagesPack="com.company.untitled.web.screens.main">
-    <data>
+    <!--<data>
         <instance id="chartDc"
                   class="com.company.untitled.entity.ChartType"
                   view="_local">
             <loader/>
         </instance>
-    </data>
+    </data>-->
     <layout spacing="true">
         <cssLayout height="1000px" responsive="false" width="100%" >
-            <vbox margin="true" spacing="true" stylename="group-panel">
-                <lookupField id="lookup" textInputAllowed="true" dataContainer="chartDc" nullName="..." optionsEnum="com.company.untitled.entity.ChartEnum" property="serial_chart"/>
+            <vbox margin="true" spacing="true" stylename="group-panel"><!--nullName="..."--><!--dataContainer="chartDc"-->
+                <lookupField id="lookup" textInputAllowed="true" optionsEnum="com.company.untitled.entity.ChartEnum"
+                             property="serial_chart"/>
             </vbox>
                 <!--groupBox id="serialChartBox" caption="SerialChart" height="100%" width="100%">
                     <fragment screen="untitled_SerialChartWidget" height="100%" width="100%"/>
