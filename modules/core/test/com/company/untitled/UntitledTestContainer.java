@@ -15,7 +15,8 @@ public class UntitledTestContainer extends TestContainer {
                 "com.haulmont.cuba",
                 "com.haulmont.addon.dashboard",
                 "com.haulmont.addon.dashboardchart",
-                "com.haulmont.charts");
+                "com.haulmont.charts",
+                "br.com.petersonbr.translations");
         appPropertiesFiles = Arrays.asList(
                 // List the files defined in your web.xml
                 // in appPropertiesConfig context parameter of the core module

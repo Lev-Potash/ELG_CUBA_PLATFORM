@@ -13,5 +13,8 @@
         <item screen="untitled_Supplier2.browse" caption="mainMsg://menu_config.untitled_Supplier2.browse"/>
         <item screen="untitled_HostScreenDemo" caption="mainMsg://menu_config.untitled_HostScreenDemo"/>
         <item screen="untitled_DateFieldScreen" caption="mainMsg://menu_config.untitled_DateFieldScreen"/>
+        <item screen="untitled_TransportCount2.browse" caption="mainMsg://menu_config.untitled_TransportCount2.browse"/>
+        <item screen="untitled_DashboardScreen" caption="mainMsg://menu_config.untitled_DashboardScreen"/>
+        <item screen="untitled_DashboardScreen2" caption="mainMsg://menu_config.untitled_DashboardScreen2"/>
     </menu>
 </menu-config>

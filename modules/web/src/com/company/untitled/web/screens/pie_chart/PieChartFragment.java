@@ -34,46 +34,49 @@ public class PieChartFragment extends ScreenFragment {
 
     @Subscribe
     public void onInit(InitEvent event) {
+        productDl.load();
         pieChartId.setDataProvider(new ContainerDataProvider(productDc));
 
         //pieChartId.setCategoryField("first_name");
-        List<String> fields = Arrays.asList("name");
 
-        pieChartId.setTitleField("name")
-                    .setValueField("cost")
-                    .addTitles(new Title()
-                            .setBold(true)
-                            .setSize(18)
-                            .setColor(Color.valueOf("GRAY"))
-                            .setText("Цены на продукты")
-        );
-                    //setCaption("Цены на продукты");
-                    //.setDataContainer("customerDC")
-                    //.setHeight("100%")
-
-
-        pieChartId.setWidth("100%");
-        pieChartId.setHeight("100%");
-        pieChartId.setAlignment(Component.Alignment.valueOf("MIDDLE_LEFT"));
-
-        pieChartId.setLegend(new Legend()
-                                        .setAutoMargins(true)
-                                        .setMarginBottom(20)
-                                        .setMarginRight(100)
-                                        .setMarkerType(MarkerType.valueOf("CIRCLE"))
-                                        .setPosition(RIGHT)
-                                        .setValueText("[[value]] ч.")
-        )
-                .setExport(new Export());
-
-        pieChartId.setAdditionalFields(fields);
-        pieChartId.repaint();
 
     }
 
     @Subscribe
     public void onAfterInit(AfterInitEvent event) {
-        productDl.load();
+        List<String> fields = Arrays.asList("name");
+
+        pieChartId.setTitleField("name")
+                .setValueField("cost")
+                .addTitles(new Title()
+                        .setBold(true)
+                        .setSize(18)
+                        .setColor(Color.valueOf("GRAY"))
+                        .setText("Цены на продукты")
+                )
+                .setDepth3D(15)
+                .setAngle(30);
+        //setCaption("Цены на продукты");
+        //.setDataContainer("customerDC")
+        //.setHeight("100%")
+
+
+//        pieChartId.setWidth("100%");
+//        pieChartId.setHeight("100%");
+        pieChartId.setAlignment(Component.Alignment.valueOf("MIDDLE_LEFT"));
+
+        pieChartId.setLegend(new Legend()
+                .setAutoMargins(true)
+                .setMarginBottom(20)
+                .setMarginRight(100)
+                .setMarkerType(MarkerType.valueOf("CIRCLE"))
+                .setPosition(RIGHT)
+                .setValueText("[[value]] ч.")
+        )
+                .setExport(new Export());
+
+        pieChartId.setAdditionalFields(fields);
+//        pieChartId.repaint();
 
 
     }

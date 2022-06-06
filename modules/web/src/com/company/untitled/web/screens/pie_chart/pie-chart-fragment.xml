@@ -11,7 +11,8 @@
     </data>
     <layout>
         <chart:pieChart id="pieChartId"
-                                 >
+                        width="100%"
+                        height="100%">
 
         </chart:pieChart>
         <!--chart:pieChart id="pieChartId"

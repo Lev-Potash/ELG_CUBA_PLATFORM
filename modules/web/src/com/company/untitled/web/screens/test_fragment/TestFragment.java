@@ -44,6 +44,12 @@ public class TestFragment extends ScreenFragment {
     @Subscribe
     public void onInit(InitEvent event) {
         productDl.load();
+        ListDataProvider dataProvider = new ListDataProvider();
+        MapDataItem item = new MapDataItem();
+        item.add("name", "genry");
+        item.add("cost",70 );
+        dataProvider.addItem(item);
+        serialChartId.setDataProvider(dataProvider);
 
     }
 
@@ -95,21 +101,18 @@ public class TestFragment extends ScreenFragment {
 
 
 
-        ListDataProvider dataProvider = new ListDataProvider();
-        MapDataItem item = new MapDataItem();
-        item.add("name", "genry");
-        item.add("cost",70 );
+
         /*dataProvider.addItem(new SimpleDataItem(
                 new CustomerList("Sky", 75)));
         dataProvider.addItem(new SimpleDataItem(
                 new CustomerList("Shady side of pyramid", 7)));
         dataProvider.addItem(new SimpleDataItem(
                 new CustomerList("Sunny side of pyramid", 18)));*/
-        dataProvider.addItem(item);
-        serialChartId.setDataProvider(dataProvider);
+
 
         //dateAndEmployeesCount.put()
-
+//        serialChartId.setWidth("100%");
+//        serialChartId.setHeight("100%");
 //serialChartId.setDataProvider(new ContainerDataProvider(customerDc));
         //serialChartId.setCategoryField("first_name");
         //List<String> values = Arrays.asList("last_name", "email");
@@ -124,8 +127,7 @@ public class TestFragment extends ScreenFragment {
                 .setStartDuration((double) 1)
                 .setTheme(ChartTheme.valueOf("LIGHT"))
                 .setColumnSpacing3D(35).setColumnSpacing(20).setBackgroundColor(Color.valueOf("RED")).setAngle(-30);
-        serialChartId.setWidth("100%");
-        serialChartId.setHeight("100%");
+
         //List<ValueAxis> valuesAxes = List<ValueAxis> Arrays.asList("0", "LEFT");
 
 
@@ -152,7 +154,7 @@ public class TestFragment extends ScreenFragment {
 
                         .setFontSize(40)
                         .setBulletSize(40)
-                        .setBalloon(new Balloon().setFontSize(50).setColor(Color.valueOf("RED")).setFillColor(Color.valueOf("BLUE")))
+                        .setBalloon(new Balloon().setFontSize(20).setColor(Color.valueOf("RED")).setFillColor(Color.valueOf("BLUE")))
                         .setBalloonText("[[title]] in [[category]]: [[value]]")
                         .setFillAlphas((double) 1)
                         .setTitle("Количество часов")
@@ -191,7 +193,7 @@ public class TestFragment extends ScreenFragment {
                 .setText("График пользователей")
         );*/
         //serialChartId.setExport(new Export());
-        serialChartId.repaint();
+//        serialChartId.repaint();
 
 
 //                .startDuration("1")

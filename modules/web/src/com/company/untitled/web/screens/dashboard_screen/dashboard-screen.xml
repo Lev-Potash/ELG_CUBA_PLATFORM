@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://dashboardScreen.caption"
+        messagesPack="com.company.untitled.web.screens.dashboard_screen"
+        xmlns:dashboard="http://schemas.haulmont.com/cubadshb/ui-component.xsd"
+>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox" width="100%">
+            <dashboard:dashboard id="3DPieChart"
+                                 code="3DPieChart"
+                                 timerDelay="60">
+                <dashboard:parameter name="role" value="Admin" type="string"/>
+            </dashboard:dashboard>
+        </scrollBox>
+    </layout>
+</window>

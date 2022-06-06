@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <layout expand="scrollBox"
+            spacing="true">
+        <lookupField id="resolutionsField"/>
+        <scrollBox id="scrollBox" width="100%">
+            <chart:serialChart id="stackedArea"
+                               categoryField="year"
+
+                               height="100%"
+                               marginLeft="0"
+                               marginTop="10"
+                               plotAreaBorderAlpha="0"
+                               width="100%">
+                <chart:chartScrollbar/>
+                <chart:chartCursor cursorAlpha="0"/>
+                <chart:legend equalWidths="true"
+                              periodValueText=" Всего: [[value.sum]]"
+                              position="TOP"
+                              valueAlign="LEFT"
+                              valueWidth="100"/>
+                <chart:valueAxes>
+                    <chart:axis gridAlpha="0.07"
+                                position="LEFT"
+                                stackType="REGULAR"
+                                title="Дорожно-транспотрные проишествия"/>
+                </chart:valueAxes>
+                <chart:graphs>
+                    <chart:graph fillAlphas="0.6"
+                                 type="COLUMN"
+                                 bullet="ROUND"
+                                 lineAlpha="0.4"
+                                 title="Автомобили"
+                                 valueField="cars"/>
+                    <chart:graph fillAlphas="0.6"
+                                 lineAlpha="0.4"
+                                 type="COLUMN"
+                                 title="Мотоциклы"
+                                 valueField="motorcycles"/>
+                    <chart:graph fillAlphas="0.6"
+                                 lineAlpha="0.4"
+                                 type="COLUMN"
+                                 title="Велосипеды"
+                                 valueField="bicycles"/>
+                </chart:graphs>
+                <chart:categoryAxis axisColor="#DADADA"
+                                    gridAlpha="0.07"
+                                    startOnAxis="true">
+                </chart:categoryAxis>
+                <chart:export/>
+                <chart:responsive enabled="true"/>
+            </chart:serialChart>
+        </scrollBox>
+    </layout>
+</fragment>

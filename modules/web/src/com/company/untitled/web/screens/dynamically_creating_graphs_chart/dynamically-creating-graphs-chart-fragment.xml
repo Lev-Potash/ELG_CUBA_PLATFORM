@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:charts="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <collection id="transportCountDc"
+                    class="com.company.untitled.entity.TransportCount"
+                    view="_local">
+            <loader id="transportCountLoader">
+                <query>
+                    <![CDATA[select e from untitled_TransportCount e order by e.year]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout>
+        <charts:serialChart id="serialChart"
+                            dataContainer="transportCountDc"
+                            categoryField="year"
+                            theme="LIGHT"
+                            height="100%"
+                            width="100%">
+            <charts:chartCursor/>
+            <charts:valueAxes>
+                <charts:axis position="LEFT"
+                             stackType="REGULAR"
+                             title="Дорожно-транспортные проишествия"/>
+            </charts:valueAxes>
+            <charts:categoryAxis startOnAxis="true"/>
+            <charts:export/>
+        </charts:serialChart>
+    </layout>
+</fragment>

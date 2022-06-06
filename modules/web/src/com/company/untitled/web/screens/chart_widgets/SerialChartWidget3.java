@@ -41,6 +41,7 @@ public class SerialChartWidget3 extends ScreenFragment {
     @Subscribe
     public void onInit(InitEvent event) {
         productDl.load();
+        serialChartId.setDataProvider(new ContainerDataProvider(productDc));
 
     }
 
@@ -48,10 +49,11 @@ public class SerialChartWidget3 extends ScreenFragment {
     public void onAfterInit(AfterInitEvent event) {
         //setSerialChart();
 
-        serialChartId.setDataProvider(new ContainerDataProvider(productDc));
+
         //serialChartId.setCategoryField("name");
         List<String> values = Arrays.asList("id");
-
+        serialChartId.setWidth("100%");
+        serialChartId.setHeight("100%");
         serialChartId.setAdditionalFields(values)
                 .setAddClassNames(Boolean.valueOf("true"))
                 .setAutoMargins(Boolean.valueOf("false"))
@@ -65,8 +67,7 @@ public class SerialChartWidget3 extends ScreenFragment {
                 .setColumnSpacing3D(30)
                 .setAngle(-30)
                 .setTheme(ChartTheme.valueOf("LIGHT"));
-        serialChartId.setWidth("100%");
-        serialChartId.setHeight("100%");
+
 
         //List<ValueAxis> valuesAxes = List<ValueAxis> Arrays.asList("0", "LEFT");
         /*serialChartId.addValueAxes(new ValueAxis()
@@ -121,7 +122,7 @@ public class SerialChartWidget3 extends ScreenFragment {
         serialChartId.setExport(new Export());
 
 
-        serialChartId.repaint();
+//        serialChartId.repaint();
 
 
 

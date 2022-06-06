@@ -9,6 +9,14 @@
             <loader/>
         </instance>
     </data>-->
+    <data>
+        <collection id="productDc" class="com.company.untitled.entity.Product"
+        >
+            <loader id="productDl" >
+                <query>SELECT p FROM untitled_Product p ORDER BY p.cost desc</query>
+            </loader>
+        </collection>
+    </data>
     <layout spacing="true">
         <cssLayout height="1000px" responsive="false" width="100%" >
             <vbox margin="true" spacing="true" stylename="group-panel"><!--nullName="..."--><!--dataContainer="chartDc"-->
@@ -26,5 +34,19 @@
                 <groupBox stylename="well" id="radarChartBox" caption="SerialChart" width="100%"/-->
             </vbox>
         </cssLayout>
+        <groupTable id="productTable" dataContainer="productDc" width="100%">
+            <columns>
+                <column id="name"/>
+                <column id="cost"/>
+            </columns>
+
+            <rows/>
+            <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+                <button id="createBtn" />
+                <button id="editBtn"/>
+                <button id="removeBtn"/>
+            </buttonsPanel>
+        </groupTable>
+
     </layout>
 </window>

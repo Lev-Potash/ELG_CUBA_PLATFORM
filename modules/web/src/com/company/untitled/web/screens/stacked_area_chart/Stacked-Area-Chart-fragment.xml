@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <layout>
+        <chart:serialChart id="stackedArea"
+                           categoryField="year"
+
+                           height="100%"
+                           marginLeft="0"
+                           marginTop="10"
+                           plotAreaBorderAlpha="0"
+                           width="100%">
+            <chart:chartScrollbar/>
+            <chart:chartCursor cursorAlpha="0"/>
+            <chart:legend equalWidths="false"
+                          periodValueText="всего: [[value.sum]]"
+                          position="TOP"
+                          valueAlign="LEFT"
+                          valueWidth="100"/>
+            <chart:valueAxes>
+                <chart:axis gridAlpha="0.07"
+                            position="LEFT"
+                            stackType="REGULAR"
+                            title="Дорожно-транспортные происшествия"/>
+            </chart:valueAxes>
+            <chart:graphs>
+                <chart:graph fillAlphas="0.6"
+                             hidden="false"
+                             lineAlpha="0.4"
+                             title="Автомобили"
+                             valueField="cars"/>
+                <chart:graph fillAlphas="0.6"
+                             lineAlpha="0.4"
+                             title="Мотоциклы"
+                             valueField="motorcycles"/>
+                <chart:graph fillAlphas="0.6"
+                             lineAlpha="0.4"
+                             title="Велосипеды"
+                             valueField="bicycles"/>
+            </chart:graphs>
+            <chart:categoryAxis axisColor="#DADADA"
+                                gridAlpha="0.07"
+                                startOnAxis="true">
+                <chart:guides>
+                    <chart:guide category="2001"
+                                 dashLength="2"
+                                 fillAlpha="0.2"
+                                 fillColor="#CC0000"
+                                 inside="true"
+                                 label="увеличены штрафы за превышение скорости"
+                                 labelRotation="90"
+                                 toCategory="2003"/>
+                    <chart:guide category="2007"
+                                 dashLength="2"
+                                 inside="true"
+                                 label="введен сбор за мотоцикл"
+                                 labelRotation="90"
+                                 lineAlpha="1"
+                                 lineColor="#CC0000"/>
+                </chart:guides>
+            </chart:categoryAxis>
+            <chart:export/>
+        </chart:serialChart>
+    </layout>
+</fragment>

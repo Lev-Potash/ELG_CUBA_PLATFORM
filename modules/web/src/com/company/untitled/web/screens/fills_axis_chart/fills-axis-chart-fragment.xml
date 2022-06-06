@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd"
+          xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+<!--    <data>
+        <collection id="pointPairDc"
+                    class="com.haulmont.sampler.entity.PointPair"
+                    view="_local">
+            <loader id="pointPair">
+                <query>
+                    <![CDATA[select e from sampler$PointPair e order by e.ax]]>
+                </query>
+            </loader>
+        </collection>
+    </data>-->
+    <layout>
+        <chart:xyChart id="xyChart"
+                       autoMarginOffset="20"
+
+                       height="100%"
+                       marginBottom="60"
+                       marginLeft="64"
+                       startDuration="1"
+                       theme="LIGHT"
+                       width="100%">
+            <chart:chartCursor/>
+            <chart:graphs>
+                <chart:graph balloonText="x:[[x]] y:[[y]]"
+                             fillAlphas="0.3"
+                             lineAlpha="0.9"
+                             lineColor="#FF6600"
+                             xField="ax"
+                             fillToAxis="x"
+                             yField="ay"/>
+                <chart:graph balloonText="x:[[x]] y:[[y]]"
+                             fillAlphas="0.3"
+                             lineAlpha="0.9"
+                             fillToAxis="y"
+                             lineColor="#FCD202"
+                             xField="bx"
+                             yField="by"/>
+            </chart:graphs>
+            <chart:valueAxes>
+                <chart:axis id="x"
+                            axisAlpha="0"
+                            dashLength="1"
+                            position="BOTTOM"
+                            title="X Axis"/>
+                <chart:axis id="y"
+                            axisAlpha="0"
+                            dashLength="1"
+                            position="LEFT"
+                            title="Y Axis"/>
+            </chart:valueAxes>
+            <chart:export position="BOTTOM_RIGHT"/>
+            <chart:data>
+                <chart:item>
+                    <chart:property name="ax" value="1" type="double"/>
+                    <chart:property name="ay" value="1" type="double"/>
+                    <chart:property name="bx" value="1" type="double"/>
+                    <chart:property name="by" value="2" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="2" type="double"/>
+                    <chart:property name="ay" value="2" type="double"/>
+                    <chart:property name="bx" value="2" type="double"/>
+                    <chart:property name="by" value="4" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="3" type="double"/>
+                    <chart:property name="ay" value="5" type="double"/>
+                    <chart:property name="bx" value="3" type="double"/>
+                    <chart:property name="by" value="1" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="4" type="double"/>
+                    <chart:property name="ay" value="5" type="double"/>
+                    <chart:property name="bx" value="4" type="double"/>
+                    <chart:property name="by" value="1" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="5" type="double"/>
+                    <chart:property name="ay" value="7" type="double"/>
+                    <chart:property name="bx" value="5" type="double"/>
+                    <chart:property name="by" value="10" type="double"/>
+                </chart:item>
+            </chart:data>
+        </chart:xyChart>
+    </layout>
+</fragment>

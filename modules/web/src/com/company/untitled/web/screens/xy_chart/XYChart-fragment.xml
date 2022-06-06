@@ -3,23 +3,32 @@
           xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
     <data>
         <collection id="productDc" class="com.company.untitled.entity.Product"
-        >
+        view="_local">
             <loader id="productDl" >
-                <query>SELECT p FROM untitled_Product p ORDER BY p.cost desc</query>
+                <query>SELECT p FROM untitled_Product p ORDER BY p.name desc</query>
             </loader>
         </collection>
     </data>
     <layout>
-        <chart:xyChart id="xyChart"
+        <chart:xyChart id="xyChart" width="100%"
+>
+<!--
                        autoMarginOffset="20"
-                       dataContainer="productDc"
+
                        height="100%"
                        marginBottom="60"
                        marginLeft="64"
                        startDuration="1"
                        theme="LIGHT"
-                       width="100%">
-            <chart:chartCursor/>
+                       width="100%"
+
+
+
+
+width="100%"-->
+<!--            height="100%"
+                dataContainer="productDc"-->
+<!--            <chart:chartCursor/>
             <chart:chartScrollbar/>
             <chart:graphs>
                 <chart:graph balloonText="x:[[x]] y:[[y]]"
@@ -27,21 +36,21 @@
                              fillAlphas="0"
                              lineAlpha="0"
                              lineColor="#FF6600"
-                             xField="count"
-                             yField="cost"/>
-                <!--chart:graph balloonText="x:[[x]] y:[[y]]"
+                             xField="ax"
+                             yField="ay"/>
+                <chart:graph balloonText="x:[[x]] y:[[y]]"
                              bullet="TRIANGLE_DOWN"
                              fillAlphas="0"
                              lineAlpha="0"
                              lineColor="#FCD202"
-                             xField="cost"
-                             yField="count"/-->
+                             xField="bx"
+                             yField="by"/>
             </chart:graphs>
             <chart:trendLines>
-                <chart:trendLine initialValue="1"
+                &lt;!&ndash;<chart:trendLine initialValue="1"
                                  initialXValue="1"
-                                 lineColor="#FCD202"/>
-                <!--chart:trendLine finalValue="12"
+                                 lineColor="#FCD202"/>&ndash;&gt;
+                <chart:trendLine finalValue="12"
                                  finalXValue="12"
                                  initialValue="2"
                                  initialXValue="1"
@@ -50,7 +59,98 @@
                                  finalXValue="12"
                                  initialValue="1"
                                  initialXValue="1"
-                                 lineColor="#FCD202"/-->
+                                 lineColor="#FCD202"/>
+            </chart:trendLines>
+            <chart:valueAxes>
+                <chart:axis axisAlpha="0"
+                            dashLength="1"
+                            position="BOTTOM"
+                            title="X Axis"/>
+                <chart:axis axisAlpha="0"
+                            dashLength="1"
+                            position="LEFT"
+                            title="Y Axis"/>
+            </chart:valueAxes>
+            <chart:export position="BOTTOM_RIGHT"/>-->
+            <!--<chart:data>
+                <chart:item>
+                    <chart:property name="ax" value="1" type="double"/>
+                    <chart:property name="ay" value="1" type="double"/>
+                    <chart:property name="bx" value="1" type="double"/>
+                    <chart:property name="by" value="2" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="2" type="double"/>
+                    <chart:property name="ay" value="2" type="double"/>
+                    <chart:property name="bx" value="2" type="double"/>
+                    <chart:property name="by" value="4" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="3" type="double"/>
+                    <chart:property name="ay" value="5" type="double"/>
+                    <chart:property name="bx" value="3" type="double"/>
+                    <chart:property name="by" value="1" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="4" type="double"/>
+                    <chart:property name="ay" value="5" type="double"/>
+                    <chart:property name="bx" value="4" type="double"/>
+                    <chart:property name="by" value="1" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="5" type="double"/>
+                    <chart:property name="ay" value="7" type="double"/>
+                    <chart:property name="bx" value="5" type="double"/>
+                    <chart:property name="by" value="10" type="double"/>
+                </chart:item>
+            </chart:data>-->
+        </chart:xyChart>
+
+
+<!--        <chart:xyChart id="xyChart"
+                       autoMarginOffset="20"
+
+                       height="100%"
+                       marginBottom="60"
+                       marginLeft="64"
+                       startDuration="1"
+                       theme="LIGHT"
+                       width="100%">
+            &lt;!&ndash;            width="100%"&ndash;&gt;
+            &lt;!&ndash;            height="100%"
+                            dataContainer="productDc"&ndash;&gt;
+            <chart:chartCursor/>
+            <chart:chartScrollbar/>
+            <chart:graphs>
+                <chart:graph balloonText="x:[[x]] y:[[y]]"
+                             bullet="TRIANGLE_UP"
+                             fillAlphas="0"
+                             lineAlpha="0"
+                             lineColor="#FF6600"
+                             xField="ax"
+                             yField="ay"/>
+                <chart:graph balloonText="x:[[x]] y:[[y]]"
+                             bullet="TRIANGLE_DOWN"
+                             fillAlphas="0"
+                             lineAlpha="0"
+                             lineColor="#FCD202"
+                             xField="bx"
+                             yField="by"/>
+            </chart:graphs>
+            <chart:trendLines>
+                &lt;!&ndash;<chart:trendLine initialValue="1"
+                                 initialXValue="1"
+                                 lineColor="#FCD202"/>&ndash;&gt;
+                <chart:trendLine finalValue="12"
+                                 finalXValue="12"
+                                 initialValue="2"
+                                 initialXValue="1"
+                                 lineColor="#FF6600"/>
+                <chart:trendLine finalValue="19"
+                                 finalXValue="12"
+                                 initialValue="1"
+                                 initialXValue="1"
+                                 lineColor="#FCD202"/>
             </chart:trendLines>
             <chart:valueAxes>
                 <chart:axis axisAlpha="0"
@@ -63,6 +163,38 @@
                             title="Y Axis"/>
             </chart:valueAxes>
             <chart:export position="BOTTOM_RIGHT"/>
-        </chart:xyChart>
+            <chart:data>
+                <chart:item>
+                    <chart:property name="ax" value="1" type="double"/>
+                    <chart:property name="ay" value="1" type="double"/>
+                    <chart:property name="bx" value="1" type="double"/>
+                    <chart:property name="by" value="2" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="2" type="double"/>
+                    <chart:property name="ay" value="2" type="double"/>
+                    <chart:property name="bx" value="2" type="double"/>
+                    <chart:property name="by" value="4" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="3" type="double"/>
+                    <chart:property name="ay" value="5" type="double"/>
+                    <chart:property name="bx" value="3" type="double"/>
+                    <chart:property name="by" value="1" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="4" type="double"/>
+                    <chart:property name="ay" value="5" type="double"/>
+                    <chart:property name="bx" value="4" type="double"/>
+                    <chart:property name="by" value="1" type="double"/>
+                </chart:item>
+                <chart:item>
+                    <chart:property name="ax" value="5" type="double"/>
+                    <chart:property name="ay" value="7" type="double"/>
+                    <chart:property name="bx" value="5" type="double"/>
+                    <chart:property name="by" value="10" type="double"/>
+                </chart:item>
+            </chart:data>&ndash;&gt;
+        </chart:xyChart>-->
     </layout>
 </fragment>

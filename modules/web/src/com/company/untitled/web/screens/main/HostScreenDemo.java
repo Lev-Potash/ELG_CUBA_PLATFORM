@@ -1,16 +1,17 @@
 package com.company.untitled.web.screens.main;
 
 import com.company.untitled.entity.ChartEnum;
+import com.company.untitled.entity.Product;
 import com.company.untitled.web.screens.chart_widgets.SerialChartWidget3;
 import com.company.untitled.web.screens.chart_widgets.SerialChartWidget4;
 import com.company.untitled.web.screens.pie_chart.PieChartFragment;
 import com.company.untitled.web.screens.radar_chart.RadarChartFragments;
 import com.company.untitled.web.screens.test_fragment.TestFragment;
 import com.haulmont.cuba.gui.Fragments;
-import com.haulmont.cuba.gui.components.GroupBoxLayout;
+import com.haulmont.cuba.gui.components.*;
 //import com.haulmont.cuba.gui.components.LookupField;
-import com.haulmont.cuba.gui.components.HasValue;
-import com.haulmont.cuba.gui.components.LookupField;
+import com.haulmont.cuba.gui.model.CollectionContainer;
+import com.haulmont.cuba.gui.model.CollectionLoader;
 import com.haulmont.cuba.gui.model.InstanceContainer;
 import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.reports.entity.charts.ChartType;
@@ -43,7 +44,31 @@ public class HostScreenDemo extends Screen /*implements ChartsFragments*/ {
     private InstanceContainer<com.company.untitled.entity.ChartType> chartDc;*/
 
     @Inject
+    private CollectionContainer<Product> productDc;
+    @Inject
+    private Button createBtn;
+    @Inject
+    private CollectionLoader<Product> productDl;
+    @Inject
+    private Button removeBtn;
+    @Inject
     private ChartsFragments chartsFragments;
+
+    @Inject
+    private GroupTable<Product> productTable;
+    @Inject
+    private Button editBtn;
+    @Inject
+    private ButtonsPanel buttonsPanel;
+
+    @Subscribe
+    public void onBeforeShow(BeforeShowEvent event) {
+        buttonsPanel.getComponent("removeBtn").setVisible(false);
+        /*removeBtn.setVisible(false);
+        editBtn.setVisible(false);
+        createBtn.setVisible(false);*/
+
+    }
 
 
 
@@ -93,7 +118,6 @@ public class HostScreenDemo extends Screen /*implements ChartsFragments*/ {
     public void onLookupValueChange(HasValue.ValueChangeEvent<ChartType> event) {
         // Получаем значение из выбранного элемента в LookupField
         String s = String.valueOf(event.getComponent().getValue());
-
 
         // Доступ к интерфейсу графиков
         chartsFragments.printChart(s, fragments, serialChartBox1, this);

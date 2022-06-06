@@ -2,7 +2,6 @@ package com.company.untitled.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.BaseIdentityIdEntity;
-//import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.global.DdlGeneration;
 
 import javax.persistence.Column;
@@ -17,11 +16,24 @@ import java.math.BigDecimal;
 @NamePattern("%s|name")
 public class Product extends BaseIdentityIdEntity {
     private static final long serialVersionUID = -6324278090804988349L;
+
     @Column(name = "cost", nullable = false, precision = 7, scale = 2)
     private BigDecimal cost;
+
+    @Column(name = "COUNT")
+    private Long count;
+
     @Lob
     @Column(name = "name", nullable = false)
     private String name;
+
+    public void setCount(Long count) {
+        this.count = count;
+    }
+
+    public Long getCount() {
+        return count;
+    }
 
     public String getName() {
         return name;

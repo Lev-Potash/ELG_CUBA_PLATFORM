@@ -8,5 +8,6 @@
         <class>com.company.untitled.entity.RequestItem</class>
         <class>com.company.untitled.entity.Customer</class>
         <class>com.company.untitled.entity.ChartType</class>
+        <class>com.company.untitled.entity.TransportCount</class>
     </persistence-unit>
 </persistence>

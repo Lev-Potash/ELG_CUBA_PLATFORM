@@ -11,10 +11,13 @@
     </data>-->
     <layout><!--dataContainer="productDc"-->
         <chart:funnelChart id="funnelChartId"
-                           titleField="name"
-                           valueField="cost"
+
+
 
                            >
+            <!--              width="100%"
+                           height="100%"             titleField="name"-->
+            <!--                           valueField="cost"-->
             <!--angle="40"
                            balloonText="[[title]]: [[value]]"
 
